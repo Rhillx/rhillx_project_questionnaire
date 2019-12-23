@@ -13,5 +13,4 @@ class Config(object):
     }
 
     FIREBASE_SERVICE_ACC_KEY = './ServiceAccountKey.json'
-
     DB_NAME = 'rhillx_client_projex'
