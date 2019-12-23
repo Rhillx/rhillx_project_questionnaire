@@ -1,0 +1,414 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <img src="/static/images/logo.png" class="img-fluid" alt="Responsive image">
+    <div class="d-flex justify-content-center">
+        <h4>Project Questionnaire</h4>
+    </div>
+    <div>
+        <hr>
+    </div>
+</div>
+<div class="d-flex justify-content-center pb-3">
+    About Yourself
+</div>
+
+<form class="p-3" method="POST" enctype="multipart/form-data" action="/">
+    <!-- FIRST AND LAST NAME -->
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            {{form.fname.label}}
+            {{form.fname(class='form-control')}}
+        </div>
+        <div class="form-group col-md-6">
+
+            {{form.lname.label}}
+            {{form.lname(class='form-control', size=30)}}
+        </div>
+    </div>
+
+    <!-- EMAIL AND PHONE NUMBER -->
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+
+            {{form.email.label}}
+            {{form.email(class='form-control')}}
+        </div>
+        <div class="form-group col-md-6">
+
+            {{form.phone_number.label}}
+            {{form.phone_number(class='form-control')}}
+        </div>
+
+    </div>
+
+    <hr class="p-2">
+    <div class="d-flex justify-content-center pb-3">
+        About The Company
+    </div>
+
+    <!-- COMPANY NAME AND DOMAIN NAME -->
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+
+            {{form.company_name.label}}
+            {{form.company_name(class='form-control')}}
+        </div>
+        <div class="form-group col-md-6">
+
+            {{form.domain.label}} <small class="m-2" style="color: orangered;"> Dont own a domain? no problem. Lets
+                keep going.</small>
+            {{form.domain(class='form-control')}}
+        </div>
+
+    </div>
+
+    <!-- ABOUT THE COMPANY -->
+    <div class="form-group">
+        {{form.about_company.label}}<small class="m-2" style="color: orangered;">| Please give a brief description
+            about what the company/organiztion does.</small>
+        {{form.about_company(class='form-control')}}
+    </div>
+
+    <!-- LOGO INQUIRY  -->
+    <div>
+        {{form.company_logo.label}}
+        {{form.company_logo(class='logo-bool')}}
+    </div>
+
+
+    <!-- LOGO UPLOAD IF SELECTED. HIDDEN FIRST -->
+
+    <div class="logo-upload custom-file">
+        {{form.logo(id='logo')}}
+        <button class="btn btn-primary" id="logo-btn" type="button">Upload Your Logo</button>
+    </div>
+    <div class="filename-div ">
+        <h6 class="file-name p-2"></h6>
+    </div>
+
+    <!-- ED ABOUT COMPANY -->
+
+    <hr class="p-2">
+    <div class="d-flex justify-content-center pb-3">
+        About The Project
+    </div>
+
+    <!-- WEBSITE INTENTION -->
+    <div class="form-group">
+        {{form.intention.label}}
+        {{form.intention(class='form-control')}}
+    </div>
+
+    <!-- WEBSITE PAGES -->
+
+    Please select the section/pages you require.
+    <div class="row">
+        <div class="col-6">
+            <div class="list-group " id="list-tab" role="tablist">
+
+                <input type="button" class="m-1 rounded-lg home-btn list-group-item list-group-item-action" value="Home"
+                    title="Home" name="home">
+                {{form.home(id='home-input')}}
+                <input type="button" class="m-1 rounded-lg about-btn list-group-item list-group-item-action"
+                    value="About" title="Home" name="about">
+                {{form.about(id='about-input')}}
+                <input type="button" class="m-1 rounded-lg contact-btn list-group-item list-group-item-action"
+                    value="Contact Info" title="Home" name="contact">
+                {{form.contact(id='contact-input')}}
+                <input type="button" class="m-1 rounded-lg gallery-btn list-group-item list-group-item-action"
+                    value="Gallery" title="Home" name="gallery">
+                {{form.gallery(id='gallery-input')}}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="list-group" id="list-tab" role="tablist">
+
+                <input type="button" class="m-1 rounded-lg events-btn list-group-item list-group-item-action"
+                    value="Upcoming Events" title="Home" name="events">
+                {{form.events(id='events-input')}}
+                <input type="button" class="m-1 rounded-lg info-btn list-group-item list-group-item-action"
+                    value="News/Info" title="Home" name="info">
+                {{form.info(id='info-input')}}
+                <input type="button" class="m-1 rounded-lg staff-btn list-group-item list-group-item-action"
+                    value="Staff/Memebers" title="Home" name="staff">
+                {{form.staff(id='staff-input')}}
+                <input type="button" class="m-1 rounded-lg other-btn list-group-item list-group-item-action"
+                    value="Other" title="Home" name="other">
+                {{form.other(id='other-input')}}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group other-section">
+        {{form.other_section.label}}
+        {{form.other_section(class='form-control')}}
+    </div>
+    <!-- HOSTING AND MAINTIANENCE -->
+    <div class="row my-3">
+        <div class="col-sm-6">
+            {{form.hosting.label}}
+            {{form.hosting(class='hosting')}}
+
+            <div id="hosting-card" class="card m-1" style="width: 18rem;">
+                <div class="card-header" style="background-color: orangered;">
+                    <b style="color: whitesmoke;">Hosting</b>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Hosting fee will cost $10/mo</p>
+                    <ul>
+                        <li> Host your site on my private secure server.</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            {{form.maintainence.label}}
+            {{form.maintainence(class='maintainence')}}
+            <div id="maintainence-card" class="card m-1" style="width: 18rem;">
+                <div class="card-header" style="background-color: rgb(47, 113, 255);">
+                    <b style="color: whitesmoke;">Maintainence</b>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Maintainence fee will cost $50/mo.</p>
+                    <ul>
+                        <li>3 content changes per month.</li>
+                        <li>Manage image/file uploading.</li>
+                        <li>Handle all server side site maintainence.</li>
+                    </ul>
+                    <small style="color: blue;">All site content must be provided to me from client.</small>
+                    <hr>
+                    <small style="color: orangered;">More than 3 site content changes will result in extra
+                        charge.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- SPECIALTIES -->
+    <div class="form-group">
+        {{form.specialties.label}}
+        {{form.specialties(class='form-control', placeholder='eg; Contact form, Calender, Social Medial Links')}}
+    </div>
+    <!-- INSPIRATION -->
+    <div class="form-group">
+        {{form.inspiration.label}} <small style="color: orangered;">If none, thats cool no biggie.</small>
+        {{form.inspiration(class='form-control')}}
+    </div>
+    <!-- NOTES -->
+    <div class="form-group">
+        {{form.notes.label}}
+        {{form.notes(class='form-control')}}
+    </div>
+
+    <div class="fluid">
+        {{form.submit(class='btn btn-primary btn-block btn-lg')}}
+    </div>
+</form>
+
+
+<!-- IMPORT FOR JQUERY AND BOOTSTRAP -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+<!-- SCRIPT FOR UPLOAD LOGO BUTTON -->
+<script>
+    const logoVal = $('.logo-bool');
+    const logoUploadDiv = $('.logo-upload');
+    const btn = $('#logo-btn');
+    const input = $('#logo');
+    const fileName = $('div > h6');
+
+
+
+    logoUploadDiv.hide();
+    input.hide();
+
+    logoVal.click(() => {
+
+        logoVal[0].checked ? logoUploadDiv.show() : logoUploadDiv.hide();
+    })
+
+    btn.click(() => {
+        input.click();
+    })
+
+    input.change(() => {
+        fileName[0].innerHTML = input[0].files[0].name + ' ' + 'loaded.';
+
+    })
+</script>
+
+<!-- SCRIPT FOR ADDING AND REMOVING PAGE SECTIONS -->
+<script>
+    const addBtn = $('.add-btn');
+    const remBtn = $('.rem-btn');
+    const ul = $('ul');
+    const li = $('li');
+    const sectionInput = $('#section-input');
+
+    addBtn.click(() => {
+        let section = sectionInput.wrap(li);
+        li.appendTo(ul);
+
+    })
+    remBtn.click(() => {
+
+        ul.children()[ul.children().length - 1].remove();
+
+    })
+</script>
+
+<!-- SCRIPT FOR REVEALING HOSTING AND MAINTAINENCE CARDS -->
+<script>
+    const mCard = $('#maintainence-card');
+    const hCard = $('#hosting-card');
+    const mInput = $('.maintainence');
+    const hInput = $('.hosting');
+
+    mCard.hide();
+    hCard.hide();
+
+    hInput.click(() => {
+
+        hInput[0].checked ? hCard.show() : hCard.hide();
+    });
+
+    mInput.click(() => {
+
+        mInput[0].checked ? mCard.show() : mCard.hide();
+    });
+</script>
+<!-- SCRIPT TO HANDLE SECTION INPUT SELECTION -->
+<script>
+    const homeBtn = $('.home-btn')
+    const homeInput = $('#home-input')
+    const aboutBtn = $('.about-btn')
+    const aboutInput = $('#about-input')
+    const contactBtn = $('.contact-btn')
+    const contactInput = $('#contact-input')
+    const galleryBtn = $('.gallery-btn')
+    const galleryInput = $('#gallery-input')
+    const eventsBtn = $('.events-btn')
+    const eventsInput = $('#events-input')
+    const infoBtn = $('.info-btn')
+    const infoInput = $('#info-input')
+    const staffBtn = $('.staff-btn')
+    const staffInput = $('#staff-input')
+    const otherBtn = $('.other-btn')
+    const otherInput = $('#other-input')
+    const otherSection = $('.other-section')
+
+    otherSection.hide();
+    homeInput.hide();
+    aboutInput.hide();
+    contactInput.hide();
+    galleryInput.hide();
+    eventsInput.hide();
+    infoInput.hide();
+    staffInput.hide();
+    otherInput.hide();
+
+
+
+    // TOGGLE FOR HOME INPUT/BTN
+    homeBtn.click(() => {
+        if (homeBtn.hasClass('active')) {
+            homeBtn.removeClass('active');
+            homeInput[0].checked = false;
+        } else {
+            homeBtn.addClass('active');
+            homeInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR ABOUT INPUT/BTN
+    aboutBtn.click(() => {
+        if (aboutBtn.hasClass('active')) {
+            aboutBtn.removeClass('active');
+            aboutInput[0].checked = false;
+        } else {
+            aboutBtn.addClass('active');
+            aboutInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR CONTACT INPUT/BTN
+    contactBtn.click(() => {
+        if (contactBtn.hasClass('active')) {
+            contactBtn.removeClass('active');
+            contactInput[0].checked = false;
+        } else {
+            contactBtn.addClass('active');
+            contactInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR GALLERY INPUT/BTN
+    galleryBtn.click(() => {
+        if (galleryBtn.hasClass('active')) {
+            galleryBtn.removeClass('active');
+            galleryInput[0].checked = false;
+        } else {
+            galleryBtn.addClass('active');
+            galleryInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR EVENTS INPUT/BTN
+    eventsBtn.click(() => {
+        if (eventsBtn.hasClass('active')) {
+            eventsBtn.removeClass('active');
+            eventsInput[0].checked = false;
+        } else {
+            eventsBtn.addClass('active');
+            eventsInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR INFO INPUT/BTN
+    infoBtn.click(() => {
+        if (infoBtn.hasClass('active')) {
+            infoBtn.removeClass('active');
+            infoInput[0].checked = false;
+        } else {
+            infoBtn.addClass('active');
+            infoInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR STAFF INPUT/BTN
+    staffBtn.click(() => {
+        if (staffBtn.hasClass('active')) {
+            staffBtn.removeClass('active');
+            staffInput[0].checked = false;
+        } else {
+            staffBtn.addClass('active');
+            staffInput[0].checked = true;
+        }
+    })
+    // TOGGLE FOR OTHER INPUT/BTN
+    otherBtn.click(() => {
+        if (otherBtn.hasClass('active')) {
+            otherBtn.removeClass('active');
+            otherInput[0].checked = false;
+            otherSection.hide();
+        } else {
+            otherBtn.addClass('active');
+            otherInput[0].checked = true;
+            otherSection.show();
+        }
+
+    })
+</script>
+
+
+{% endblock %}
