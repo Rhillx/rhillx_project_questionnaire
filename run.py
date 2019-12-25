@@ -29,13 +29,13 @@ def get_form():
 
     if request.method == "POST":
         
-        client_name = form.fname.data[0] +'.'+ form.lname.data
-
+        client = form.company_name.data
         
-        
-        if request.files:
+        if form.logo.data:
             image = request.files['logo']
             storage.child('logos/'+ image.filename ).put(image.read())
+
+           
             
             questionnaire = {
                 'fname': form.fname.data,
@@ -64,7 +64,7 @@ def get_form():
                 'notes' : form.notes.data,
             }
 
-            doc_ref.document(client_name).set(questionnaire)
+            doc_ref.document(client).set(questionnaire)
 
             return redirect(url_for('message'))
         
@@ -94,7 +94,7 @@ def get_form():
                 'notes' : form.notes.data,
             }
 
-        doc_ref.document(client_name).set(questionnaire)
+        doc_ref.document(client).set(questionnaire)
     
         return redirect(url_for('message'))
 
