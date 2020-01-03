@@ -9,6 +9,8 @@ class Questionnaire(FlaskForm):
     lname = StringField('Last Name', [InputRequired()])
     email = StringField('Email', [InputRequired(), Email('Please enter a valid email.')])
     phone_number = StringField('Phone Number')
+    # PROJECT TYPE
+    project_type = StringField('Project Type')
     # ABOUT THE COMPANY
     domain = StringField('Site Domain')
     company_name = StringField('Company/Organization Name')
@@ -16,6 +18,10 @@ class Questionnaire(FlaskForm):
     company_logo = BooleanField('Do you have a logo?')
     logo = FileField('Upload Logo')
     # ABOUT THE PROJECT
+    script_description = TextAreaField('Please describe the what you want the program to do to the best of your ability.')
+    webapp_description = TextAreaField('Please describe your idea to the best of your ability.')
+    admin_page = BooleanField('Do you need an admin page?')
+    custom_database = BooleanField('Will you require a custom database?')
     intention = TextAreaField('What is the purpose of the website?')
     home = BooleanField()
     about = BooleanField()

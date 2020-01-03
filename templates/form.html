@@ -5,7 +5,7 @@
 
     <img src="/static/images/logo.png" class="img-fluid" alt="Responsive image">
     <div class="d-flex justify-content-center">
-        <h4>Project Questionnaire</h4>
+        <h4 style="text-align: center;">Project Questionnaire</h4>
     </div>
     <div>
         <hr>
@@ -47,62 +47,141 @@
     </div>
 
     <hr class="p-2">
-    <div class="d-flex justify-content-center pb-3">
-        About The Company
-    </div>
+        <div class="d-flex justify-content-center pb-3">
+            What category does your project fall under?
+        </div>
 
-    <!-- COMPANY NAME AND DOMAIN NAME -->
-    <div class="form-row">
+        <div class="list-group">
+
+            <div class="row my-1 d-flex justify-content-between">
+                <div class="col-sm-2">
+                    <input style="text-align: center;" type="button"
+                        class="m-1 rounded-lg website-btn list-group-item list-group-item-action"
+                     value="Website" title="Website" name="website">
+            </div>
+            <div class="col-sm-2">
+                 <input style="text-align: center;" type="button"
+                     class="m-1 rounded-lg webapp-btn list-group-item list-group-item-action"
+                     value="Mobile/Webapp" title="Mobile/Webapp" name="webapp">
+            </div>
+            <div class="col-sm-2">
+                <input style="text-align: center;" type="button"
+                    class="m-1 rounded-lg script-btn list-group-item list-group-item-action"
+                     value="Script/Program" title="Script/Program" name="script">
+            </div>
+            <div class="col-sm-2">
+                <input style="text-align: center;" type="button"
+                    class="m-1 rounded-lg iot-btn list-group-item list-group-item-action"
+                value="IOT" title="IOT" name="iot">
+            </div>
+            <div class="col-sm-2 ">
+                <input style="text-align: center;" type="button" class="m-1 rounded-lg database-btn list-group-item list-group-item-action"
+                value="Database" title="Database" name="database">
+            </div>
+        </div>
+        
+    </div>
+        {{form.project_type.label}}
+        {{form.project_type(class='project-type-input')}}
+
+
+    <hr class="p-2">
+
+    <!-- ABOUT THE COMPANY DIV -->
+    <div id="about-company-div">
+
+        <div class="d-flex justify-content-center pb-3">
+            About The Company
+        </div>
+        
+        <!-- COMPANY NAME AND DOMAIN NAME -->
+        <div class="form-row">
 
         <div class="form-group col-md-6">
-
+            
             {{form.company_name.label}}
             {{form.company_name(class='form-control')}}
         </div>
         <div class="form-group col-md-6">
-
+            
             {{form.domain.label}} <small class="m-2" style="color: orangered;"> Dont own a domain? no problem. Lets
                 keep going.</small>
-            {{form.domain(class='form-control')}}
+                {{form.domain(class='form-control')}}
+            </div>
+            
         </div>
-
-    </div>
-
-    <!-- ABOUT THE COMPANY -->
-    <div class="form-group">
-        {{form.about_company.label}}<small class="m-2" style="color: orangered;">| Please give a brief description
-            about what the company/organiztion does.</small>
-        {{form.about_company(class='form-control')}}
-    </div>
-
-    <!-- LOGO INQUIRY  -->
-    <div>
-        {{form.company_logo.label}}
-        {{form.company_logo(class='logo-bool')}}
-    </div>
-
-
-    <!-- LOGO UPLOAD IF SELECTED. HIDDEN FIRST -->
-
-    <div class="logo-upload custom-file">
-        {{form.logo(id='logo')}}
-        <button class="btn btn-primary" id="logo-btn" type="button">Upload Your Logo</button>
-    </div>
-    <div class="filename-div ">
-        <h6 class="file-name p-2"></h6>
-    </div>
-
-    <!-- ED ABOUT COMPANY -->
+        
+        <!-- ABOUT THE COMPANY -->
+        <div class="form-group">
+            {{form.about_company.label}}<small class="m-2" style="color: orangered;">| Please give a brief description
+                about what the company/organiztion does.</small>
+                {{form.about_company(class='form-control')}}
+            </div>
+            
+            <!-- LOGO INQUIRY  -->
+            <div>
+                {{form.company_logo.label}}
+                {{form.company_logo(class='logo-bool')}}
+            </div>
+            
+            
+            <!-- LOGO UPLOAD IF SELECTED. HIDDEN FIRST -->
+            
+            <div class="logo-upload custom-file">
+                {{form.logo(id='logo')}}
+                <button class="btn btn-primary" id="logo-btn" type="button">Upload Your Logo</button>
+            </div>
+            <div class="filename-div ">
+                <h6 class="file-name p-2"></h6>
+            </div>
+            <!-- ED ABOUT COMPANY -->
+            
+        </div>
+        <!-- END ABOUT COMPANY DIV -->
 
     <hr class="p-2">
+
+
     <div class="d-flex justify-content-center pb-3">
         About The Project
     </div>
 
-    <!-- WEBSITE INTENTION -->
-    <div class="form-group">
-        {{form.intention.label}}
-        {{form.intention(class='form-control')}}
+    <!-- SCRIPTING PROJECT DIV -->
+    <div id="scripting-project">
+        <div class="form-group">
+            {{form.script_description.label}}
+            {{form.script_description(class='form-control')}}
+        </div>
+    </div>
+    <!-- END SCRIPTING PROJECT DIV -->
+
+    <!-- WEBAPP PROJECT DIV -->
+    <div id="webapp-project-div">
+        <div class="form-group">
+            {{form.webapp_description.label}}
+            {{form.webapp_description(class='form-control')}}
+        </div>
+
+        <div class="row my-3">
+
+            <div class="form-group col-sm-6">
+                {{form.admin_page.label}}
+                {{form.admin_page}}
+            </div>
+            <div class="form-group col-sm-6">
+                {{form.custom_database.label}}
+                {{form.custom_database}}
+            </div>
+        </div>
+    </div>
+
+    <!-- WEBSITE PROJECT DIV -->
+    <div id="website-project">
+
+        <!-- WEBSITE INTENTION -->
+        <div class="form-group">
+            {{form.intention.label}}
+            {{form.intention(class='form-control')}}
     </div>
 
     <!-- WEBSITE PAGES -->
@@ -113,48 +192,56 @@
             <div class="list-group " id="list-tab" role="tablist">
 
                 <input type="button" class="m-1 rounded-lg home-btn list-group-item list-group-item-action" value="Home"
-                    title="Home" name="home">
+                title="Home" name="home">
                 {{form.home(id='home-input')}}
                 <input type="button" class="m-1 rounded-lg about-btn list-group-item list-group-item-action"
-                    value="About" title="Home" name="about">
+                value="About" title="Home" name="about">
                 {{form.about(id='about-input')}}
                 <input type="button" class="m-1 rounded-lg contact-btn list-group-item list-group-item-action"
-                    value="Contact Info" title="Home" name="contact">
+                value="Contact Info" title="Home" name="contact">
                 {{form.contact(id='contact-input')}}
                 <input type="button" class="m-1 rounded-lg gallery-btn list-group-item list-group-item-action"
-                    value="Gallery" title="Home" name="gallery">
+                value="Gallery" title="Home" name="gallery">
                 {{form.gallery(id='gallery-input')}}
             </div>
         </div>
         <div class="col-6">
             <div class="list-group" id="list-tab" role="tablist">
-
+                
                 <input type="button" class="m-1 rounded-lg events-btn list-group-item list-group-item-action"
-                    value="Upcoming Events" title="Home" name="events">
+                value="Upcoming Events" title="Home" name="events">
                 {{form.events(id='events-input')}}
                 <input type="button" class="m-1 rounded-lg info-btn list-group-item list-group-item-action"
                     value="News/Info" title="Home" name="info">
-                {{form.info(id='info-input')}}
+                    {{form.info(id='info-input')}}
                 <input type="button" class="m-1 rounded-lg staff-btn list-group-item list-group-item-action"
                     value="Staff/Memebers" title="Home" name="staff">
-                {{form.staff(id='staff-input')}}
-                <input type="button" class="m-1 rounded-lg other-btn list-group-item list-group-item-action"
+                    {{form.staff(id='staff-input')}}
+                    <input type="button" class="m-1 rounded-lg other-btn list-group-item list-group-item-action"
                     value="Other" title="Home" name="other">
-                {{form.other(id='other-input')}}
+                    {{form.other(id='other-input')}}
+                </div>
             </div>
         </div>
+        
+        <div class="form-group other-section">
+            {{form.other_section.label}}
+            {{form.other_section(class='form-control')}}
     </div>
+</div>
+<!-- END WEBSITE PROJECT TYPE -->
 
-    <div class="form-group other-section">
-        {{form.other_section.label}}
-        {{form.other_section(class='form-control')}}
-    </div>
+
+<!-- HOSTING AND MAINTAINENCE DIV -->
+
+<div id="cards-div">
+
     <!-- HOSTING AND MAINTIANENCE -->
     <div class="row my-3">
         <div class="col-sm-6">
             {{form.hosting.label}}
             {{form.hosting(class='hosting')}}
-
+            
             <div id="hosting-card" class="card m-1" style="width: 18rem;">
                 <div class="card-header" style="background-color: orangered;">
                     <b style="color: whitesmoke;">Hosting</b>
@@ -186,22 +273,38 @@
                     <hr>
                     <small style="color: orangered;">More than 3 site content changes will result in extra
                         charge.</small>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
+<!-- END CARDS DIV -->
 
-    <!-- SPECIALTIES -->
-    <div class="form-group">
-        {{form.specialties.label}}
-        {{form.specialties(class='form-control', placeholder='eg; Contact form, Calender, Social Medial Links')}}
+
+    <!--SPECIALTIES DIV  -->
+    <div id="specialties-div">
+
+        <!-- SPECIALTIES -->
+        <div class="form-group">
+            {{form.specialties.label}}
+            {{form.specialties(class='form-control', placeholder='eg; Contact form, Calender, Social Medial Links')}}
+        </div>
     </div>
-    <!-- INSPIRATION -->
-    <div class="form-group">
-        {{form.inspiration.label}} <small style="color: orangered;">If none, thats cool no biggie.</small>
-        {{form.inspiration(class='form-control')}}
+    <!-- END SPECIALTIES DIV -->
+
+    <!-- INSPIRATION DIV -->
+    <div id="inspiration-div">
+
+        <!-- INSPIRATION -->
+        <div class="form-group">
+            {{form.inspiration.label}} <small style="color: orangered;">If none, thats cool no biggie.</small>
+            {{form.inspiration(class='form-control')}}
+        </div>
+
     </div>
+    <!-- END INSPIRATION DIV -->
+
     <!-- NOTES -->
     <div class="form-group">
         {{form.notes.label}}
