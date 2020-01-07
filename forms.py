@@ -18,6 +18,7 @@ class Questionnaire(FlaskForm):
     company_logo = BooleanField('Do you have a logo?')
     logo = FileField('Upload Logo')
     # ABOUT THE PROJECT
+    iot_description = TextAreaField('What do you need the IOT device to do?')
     script_description = TextAreaField('Please describe the what you want the program to do to the best of your ability.')
     webapp_description = TextAreaField('Please describe your idea to the best of your ability.')
     admin_page = BooleanField('Do you need an admin page?')

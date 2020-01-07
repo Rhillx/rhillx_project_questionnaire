@@ -30,7 +30,9 @@
         </div>
     </div>
 
-    <!-- EMAIL AND PHONE NUMBER -->
+
+
+    <!-------------------------- EMAIL AND PHONE NUMBER ------------------------------------------>
     <div class="form-row">
 
         <div class="form-group col-md-6">
@@ -45,8 +47,13 @@
         </div>
 
     </div>
+<!-- ----------------------------------END SECTION------------------------------------------- -->
+
 
     <hr class="p-2">
+
+<!-- -----------------------------------PROJECT CATEGORY-------------------------------------- -->
+
         <div class="d-flex justify-content-center pb-3">
             What category does your project fall under?
         </div>
@@ -84,10 +91,12 @@
         {{form.project_type.label}}
         {{form.project_type(class='project-type-input')}}
 
+<!-- ------------------------------------END SECTION----------------------------------------------- -->
 
     <hr class="p-2">
 
-    <!-- ABOUT THE COMPANY DIV -->
+<!------------------------------------ ABOUT THE COMPANY DIV ----------------------------------------->
+
     <div id="about-company-div">
 
         <div class="d-flex justify-content-center pb-3">
@@ -137,14 +146,30 @@
             <!-- ED ABOUT COMPANY -->
             
         </div>
-        <!-- END ABOUT COMPANY DIV -->
+<!------------------------------- END ABOUT COMPANY DIV ------------------------------------------------>
+
 
     <hr class="p-2">
 
+<!-- ---------------------------------ABOUT THE PROJECT-------------------------------------------- -->
 
     <div class="d-flex justify-content-center pb-3">
         About The Project
     </div>
+
+    <!-- DATABASE PROJECT -->
+    
+
+
+
+    <!-- IOT PROJECT DIV -->
+    <div id="iot-project">
+        <div class="form-group">
+            {{form.iot_description.label}}
+            {{form.iot_description(class='form-control')}}
+        </div>
+    </div>
+    <!-- END IOT PROJECT DIV -->
 
     <!-- SCRIPTING PROJECT DIV -->
     <div id="scripting-project">
@@ -174,6 +199,7 @@
             </div>
         </div>
     </div>
+    <!-- END WEBAPP DIV -->
 
     <!-- WEBSITE PROJECT DIV -->
     <div id="website-project">
