@@ -5,7 +5,7 @@
 
     <img src="/static/images/logo.png" class="img-fluid" alt="Responsive image">
     <div class="d-flex justify-content-center">
-        <h4 style="text-align: center;">Project Questionnaire</h4>
+        <h4 style="text-align: center; font-family: 'Prosto One', cursive;">Project Questionnaire</h4>
     </div>
     <div>
         <hr>
@@ -61,35 +61,39 @@
         <div class="list-group">
 
             <div class="row my-1 d-flex justify-content-between">
-                <div class="col-sm-2">
-                    <input style="text-align: center;" type="button"
+                <div class="col-md">
+                    <input type="button"
                         class="m-1 rounded-lg website-btn list-group-item list-group-item-action"
                      value="Website" title="Website" name="website">
             </div>
-            <div class="col-sm-2">
-                 <input style="text-align: center;" type="button"
+            <div class="col-md">
+                 <input type="button"
                      class="m-1 rounded-lg webapp-btn list-group-item list-group-item-action"
                      value="Mobile/Webapp" title="Mobile/Webapp" name="webapp">
             </div>
-            <div class="col-sm-2">
+            <div class="col-md">
                 <input style="text-align: center;" type="button"
                     class="m-1 rounded-lg script-btn list-group-item list-group-item-action"
                      value="Script/Program" title="Script/Program" name="script">
             </div>
-            <div class="col-sm-2">
+            <div class="col-md">
                 <input style="text-align: center;" type="button"
                     class="m-1 rounded-lg iot-btn list-group-item list-group-item-action"
                 value="IOT" title="IOT" name="iot">
             </div>
-            <div class="col-sm-2 ">
+            <div class="col-md">
                 <input style="text-align: center;" type="button" class="m-1 rounded-lg database-btn list-group-item list-group-item-action"
                 value="Database" title="Database" name="database">
             </div>
         </div>
         
     </div>
+
+    <div id="project-type-div">
+
         {{form.project_type.label}}
         {{form.project_type(class='project-type-input')}}
+    </div>
 
 <!-- ------------------------------------END SECTION----------------------------------------------- -->
 
@@ -113,8 +117,7 @@
         </div>
         <div class="form-group col-md-6">
             
-            {{form.domain.label}} <small class="m-2" style="color: orangered;"> Dont own a domain? no problem. Lets
-                keep going.</small>
+            {{form.domain.label}} <small class="m-2" style="color: orangered;"> Dont own a domain? no problem.</small>
                 {{form.domain(class='form-control')}}
             </div>
             
@@ -158,7 +161,12 @@
     </div>
 
     <!-- DATABASE PROJECT -->
-    
+    <div id="database-project">
+        <div class="form-group">
+            {{form.database_description.label}}
+            {{form.database_description(class='form-control')}}
+        </div>
+    </div>
 
 
 
@@ -172,7 +180,7 @@
     <!-- END IOT PROJECT DIV -->
 
     <!-- SCRIPTING PROJECT DIV -->
-    <div id="scripting-project">
+    <div id="script-project">
         <div class="form-group">
             {{form.script_description.label}}
             {{form.script_description(class='form-control')}}
@@ -181,24 +189,32 @@
     <!-- END SCRIPTING PROJECT DIV -->
 
     <!-- WEBAPP PROJECT DIV -->
-    <div id="webapp-project-div">
+    <div id="webapp-project">
         <div class="form-group">
             {{form.webapp_description.label}}
             {{form.webapp_description(class='form-control')}}
         </div>
+    </div>
+
+   
 
         <div class="row my-3">
-
-            <div class="form-group col-sm-6">
-                {{form.admin_page.label}}
+            
+            <div id="admin-bool" class="form-group col col-sm-6">
+                {{form.admin_page.label}} <small>webapps and databases may require.</small>
                 {{form.admin_page}}
             </div>
-            <div class="form-group col-sm-6">
-                {{form.custom_database.label}}
+            <div id="database-bool" class="form-group col col-sm-6">
+                {{form.custom_database.label}} <small>certain mobile/web apps require a database.</small>
                 {{form.custom_database}}
             </div>
+            <div id="ui-bool" class="form-group col col-sm-6">
+                {{form.ui.label}} <small>for IOT projects.</small>
+                {{form.ui}}
+            </div>
         </div>
-    </div>
+    
+
     <!-- END WEBAPP DIV -->
 
     <!-- WEBSITE PROJECT DIV -->
@@ -208,7 +224,7 @@
         <div class="form-group">
             {{form.intention.label}}
             {{form.intention(class='form-control')}}
-    </div>
+        </div>
 
     <!-- WEBSITE PAGES -->
 
@@ -273,9 +289,10 @@
                     <b style="color: whitesmoke;">Hosting</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Hosting fee will cost $10/mo</p>
+                    <p class="card-text">Hosting fee $15/mo</p>
                     <ul>
-                        <li> Host your site on my private secure server.</li>
+                        <li><p> Host your site on my private secure server.</p></li>
+                        <li><p> Set up and handle all server side  project requirements.</p></li>
 
                     </ul>
                 </div>
@@ -289,15 +306,20 @@
                     <b style="color: whitesmoke;">Maintainence</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Maintainence fee will cost $50/mo.</p>
+                    <p class="card-text">Maintainence fee $50/mo.</p>
                     <ul>
-                        <li>3 content changes per month.</li>
-                        <li>Manage image/file uploading.</li>
-                        <li>Handle all server side site maintainence.</li>
+                        <li><p> 3 content changes per month.</p></li>
+                        <li><p>Manage image/file uploading.</p></li>
+                        <li>
+                            <p>Handle all client side site maintainence.</p>
+                        </li>
+                        <li>
+                            <p>Keep project up to date with latest technologies.</p>
+                        </li>
                     </ul>
-                    <small style="color: blue;">All site content must be provided to me from client.</small>
+                    <small style="color: blue;">All site content must be provided to me from the client.</small>
                     <hr>
-                    <small style="color: orangered;">More than 3 site content changes will result in extra
+                    <small>More than 3 site content changes will result in extra
                         charge.</small>
                     </div>
                 </div>
@@ -309,12 +331,12 @@
 
 
     <!--SPECIALTIES DIV  -->
-    <div id="specialties-div">
+    <div id="specifics-div">
 
         <!-- SPECIALTIES -->
         <div class="form-group">
-            {{form.specialties.label}}
-            {{form.specialties(class='form-control', placeholder='eg; Contact form, Calender, Social Medial Links')}}
+            {{form.specifics.label}}
+            {{form.specifics(class='form-control', placeholder='eg; Contact form, Calender, Social Medial Links')}}
         </div>
     </div>
     <!-- END SPECIALTIES DIV -->
@@ -324,7 +346,7 @@
 
         <!-- INSPIRATION -->
         <div class="form-group">
-            {{form.inspiration.label}} <small style="color: orangered;">If none, thats cool no biggie.</small>
+            {{form.inspiration.label}} <small>If none, thats cool no biggie.</small>
             {{form.inspiration(class='form-control')}}
         </div>
 
@@ -341,6 +363,33 @@
         {{form.submit(class='btn btn-primary btn-block btn-lg')}}
     </div>
 </form>
+
+<style>
+    body
+    {
+        font-family: 'Prosto One', cursive;
+    }
+    label
+    {
+        font-weight: 300;
+        font-size: 12px;
+    }
+    small
+    {
+        font-weight: 300;
+        font-size: 12px;
+        color: orangered;
+    }
+    .rounded-lg
+    {
+        font-size: 10px;
+        text-align: center;
+    }
+    p
+    {
+        font-size: 12px;
+    }
+</style>
 
 
 <!-- IMPORT FOR JQUERY AND BOOTSTRAP -->
@@ -537,6 +586,85 @@
         }
 
     })
+</script>
+<!-- -------------------PROJECT TYPE SCRIPT-------------- -->
+<script>
+    const typeDiv = $('#project-type-div')
+    const typeInput = $('.project-type-input')
+    const dbSection = $('#database-project')
+    const dbBtn = $('.database-btn')
+    const iotSection = $('#iot-project')
+    const iotBtn = $('.iot-btn')
+    const scriptSection = $('#script-project')
+    const scriptBtn = $('.script-btn')
+    const webappSection = $('#webapp-project')
+    const webappBtn = $('.webapp-btn')
+    const websiteSection = $('#website-project')
+    const websiteBtn = $('.website-btn')
+    const adminBool = $('#admin-bool')
+    const databaseBool = $('#database-bool')
+    const uiBool = $('#ui-bool')
+
+    typeDiv.hide();
+    dbSection.hide();
+    iotSection.hide();
+    scriptSection.hide();
+    webappSection.hide();
+    websiteSection.hide();
+   
+
+    function classChecker(btn){
+        elements = [websiteBtn, webappBtn, scriptBtn, iotBtn, dbBtn];
+
+        for (const element of elements) {
+            if(btn != element){
+                element.hasClass('active') ? element.removeClass('active'):null;
+                
+                btn.addClass('active');
+            }
+        }
+    };
+
+    function peekaBoo(sect){
+        sections = [websiteSection, webappSection, scriptSection, iotSection, dbSection];
+
+        for(const section of sections){
+            if(sect != section){
+                section.hide();
+                sect.show();
+            } 
+        }
+    };
+
+    websiteBtn.click(()=>{
+        classChecker(websiteBtn);
+        peekaBoo(websiteSection);
+        typeInput[0].value = 'Website';
+    })
+
+    webappBtn.click(()=>{
+        classChecker(webappBtn);
+        peekaBoo(webappSection);
+        typeInput[0].value = 'Mobile/Webapp';
+    })
+
+    scriptBtn.click(()=>{
+         classChecker(scriptBtn);
+         peekaBoo(scriptSection);
+         typeInput[0].value = 'Script/Program';
+    })
+    iotBtn.click(()=>{
+         classChecker(iotBtn);
+         peekaBoo(iotSection);
+         typeInput[0].value = 'IOT';
+    })
+    dbBtn.click(()=>{
+         classChecker(dbBtn);
+         peekaBoo(dbSection);
+         typeInput[0].value = 'Database';
+    })
+
+    
 </script>
 
 
